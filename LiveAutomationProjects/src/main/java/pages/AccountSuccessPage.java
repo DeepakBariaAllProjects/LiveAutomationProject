@@ -1,0 +1,59 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class AccountSuccessPage {
+
+	WebDriver driver;
+
+	public AccountSuccessPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(linkText = "Logout")
+	private WebElement LogoutDisplay;
+	
+	@FindBy(linkText="Continue")
+	private WebElement AccountPage;
+
+	@FindBy(xpath = "//ul[@class='list-unstyled']//a[text()='Edit your account information']")
+	private WebElement EditAccountPage;
+	
+	@FindBy(xpath = "//span[text()='My Account']")
+	private WebElement MyAccountDropDown;
+	
+	@FindBy(linkText = "Logout")
+	private WebElement ClickAtLogoutOptionAtMyAccountDropDown;
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public boolean UserSuccessFullyLoggedIn() {
+		return LogoutDisplay.isDisplayed();
+	}
+	
+	public AccountPage RedirectToAccountPage() {
+		AccountPage.click();
+		return new AccountPage(driver);
+	}
+	public LogoutPage clickOnLogoutOption() {
+		LogoutDisplay.click();
+		return new LogoutPage(driver);
+	}
+	public LoginPage VerifyEditAccountInformationLinkInAccountPage() {
+		EditAccountPage.click();
+		return new LoginPage(driver);
+	}
+	public void ClickAtMyAccountDropDown() {
+		MyAccountDropDown.click();
+	}
+	
+	public LogoutPage clickLogoutFromMyAccountDropDown() {
+		ClickAtLogoutOptionAtMyAccountDropDown.click();
+		return new LogoutPage(driver);
+	}
+}
