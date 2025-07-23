@@ -29,6 +29,6 @@ public class AccountPage {
 	}
 	public void clickOnEditAccount() {
 		finalAccountPage.click();
-	}
+	} 
 
 }
