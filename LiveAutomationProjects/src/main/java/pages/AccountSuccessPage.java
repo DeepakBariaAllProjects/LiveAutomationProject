@@ -29,6 +29,8 @@ public class AccountSuccessPage {
 	@FindBy(linkText = "Logout")
 	private WebElement ClickAtLogoutOptionAtMyAccountDropDown;
 	
+	@FindBy(linkText = "Logout")
+	private WebElement clickOnRightSideLogoutOptions;
 	public WebDriver getDriver() {
 		return driver;
 	}
@@ -54,6 +56,10 @@ public class AccountSuccessPage {
 	
 	public LogoutPage clickLogoutFromMyAccountDropDown() {
 		ClickAtLogoutOptionAtMyAccountDropDown.click();
+		return new LogoutPage(driver);
+	}
+	public LogoutPage ClickRightSideLogoutOption() {
+		clickOnRightSideLogoutOptions.click();
 		return new LogoutPage(driver);
 	}
 }

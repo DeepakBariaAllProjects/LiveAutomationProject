@@ -44,6 +44,15 @@ public class Logout extends Base {
 		Assert.assertTrue(logout.verifyLogoutBreadcrum());
 
 	}
+	@Test
+	public void verifylogoutFunctionalityFromSelectingRightSideOptions() {
+		login.emailInputField(prop.getProperty("existEmail"));
+		login.passwordInputField(prop.getProperty("Password"));
+		accountSuccessPage = login.ClickOnLoginButton();
+		accountSuccessPage.ClickRightSideLogoutOption();
+		logout = accountSuccessPage.clickLogoutFromMyAccountDropDown();
+		Assert.assertTrue(logout.verifyLogoutBreadcrum());
+	}
 
 	@AfterMethod
 	public void tearDown() {
