@@ -51,7 +51,7 @@ public class Logout extends Base {
 		accountSuccessPage = login.ClickOnLoginButton();
 		accountSuccessPage.ClickRightSideLogoutOption();
 		logout = accountSuccessPage.clickLogoutFromMyAccountDropDown();
-		Assert.assertTrue(logout.verifyLogoutBreadcrum());
+		Assert.assertTrue(logout.verifyLogoutBreadcrum()); 
 	}
 
 	@AfterMethod
